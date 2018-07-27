@@ -1764,16 +1764,16 @@ definitions:
         description: 'Represents the hierarchial position of a user  inside an organization'
         type: string
       joiningDate:
-        description: 'Represents the joining date in format YYYY-MM-DDDD'
+        description: 'Represents the joining date in format YYYY-MM-DD'
         type: string
       endDate:
-        description: 'Represents the Release date from the job in format yyyy-MM-dd'
+        description: 'Represents the Release date from the job in format YYYY-MM-DD'
         type: string
       orgId:
-        description: ''
+        description: 'Represents an Organization Uniquely'
         type: string
       orgName:
-        description: ''
+        description: 'Represents the name of the Organization'
         type: string
       subject:
         description: ''
@@ -1809,10 +1809,10 @@ definitions:
     example:
       request:
         query: >- 
-          Represents text search, if you want enable free text search then pass the query as string
+          Represent the search request, if you want enable free text search then pass the query as string
         filters:
           userAttribute:
-          - Represents the value of user attribute, it can be either a string or array.
+          - Represents the value of user attribute, the value can be either be a string or an array.
           - Ex: firstName:test  or firstName:["test","test1"] 
         limit: 500
     type: object
@@ -1824,13 +1824,13 @@ definitions:
     required:
     - request
   userSearch:
-    description: Search user request
+    description: User Search request
     type: object
     properties:
       filters:
         $ref: '#/definitions/Filters'
       limit:
-        description: ''
+        description: 'Represents the limit of the display results'
         type: integer
         format: int32
     required:
@@ -1842,9 +1842,9 @@ definitions:
     properties:
       userAttribute:
         description: >-
-          Represents the userAttributes. It can be any attribute of user.
+          Represents the attributes related to the user
             - For single attribute pass string only 
-            - if you want to get response based on same key multiple value then pass values as an array that can be done inside the filter, you can pass multiple attributes with multiple values'
+            - if you want to get response based on multiple values, then pass values as an array.That can be done inside the filter, you can pass multiple attributes with multiple values'
         type: array
         items:
           type: string
@@ -1871,7 +1871,7 @@ definitions:
         description: ' Represents the Last name of the user'
         type: string
       gender:
-        description: 'Represents the  Gender of the user,  Male|Female'
+        description: 'Represents the Gender of the user,  Male|Female'
         type: string
       avatar:
         description: 'Represents the profile picture of the user'
@@ -1879,10 +1879,10 @@ definitions:
       dob:
         description: 'Represents the Data of Birth of the user'
         type: string
-        format: yyyy-MM-dd
+        format: yyyy-MM-DD
         example: '2001-02-27'
       language:
-        description: 'Represents the language of the user'
+        description: 'Represents the preferred language of the user'
         type: array
         items:
           type: string
@@ -1892,16 +1892,16 @@ definitions:
         items:
           type: string
       externalId:
-        description: 'externalId,externalIdType,externalIdProvider are the keys that are required if the user does not pass the userId'
+        description:  If the user does not pass the userID, the following keys must be provided: 'externalId | externalIdType | externalIdProvider
         type: string
       externalIdType:
-        description: 'externalId,externalIdType,externalIdProvider are the keys that are required if the user does not pass the userId'
+        description: If the user does not pass the userID, the following keys must be provided: 'externalId | externalIdType | externalIdProvider
         type: string
       externalIdProvider:
-        description: 'externalId,externalIdType,externalIdProvider are the keys that are required if the user does not pass the userId'
+        description: If the user does not pass the userID, the following keys must be provided: 'externalId | externalIdType | externalIdProvider
         type: string
       externalIds:
-        description: 'details of external IDs and provider'
+        description: 'Details of external IDs and provider'
         type: array
         items:
           type: object
